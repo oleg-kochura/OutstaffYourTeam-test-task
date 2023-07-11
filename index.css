@@ -1,0 +1,40 @@
+.list {
+    display: flex;
+    list-style-type: none;
+}
+
+.list-item {
+    position: relative;
+    margin-right: 16px;
+    overflow: hidden;
+}
+
+.list-item:last-child {
+    margin-right: 0;
+}
+
+.list-item:hover {
+    cursor: pointer;
+}
+
+.list-item::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 1px;
+    background-color: #000;
+    opacity: 0;
+    transition: opacity 200ms, transform 200ms;
+}
+
+.list-item:after {
+    opacity: 0;
+    transform: translateX(-100%);
+}
+
+.list-item:hover::after {
+    opacity: 1;
+    transform: translateX(0);
+}
