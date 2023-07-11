@@ -56,13 +56,9 @@ function calcItemPriceByCurrency(currency, id) {
 }
 
 function calcItemsPriceSumByCurrency(currency, itemsIds) {
-    let sum = 0;
-
-    itemsIds.forEach(id => {
-        sum = sum + calcItemPriceByCurrency(currency, id);
-    });
-
-    return sum;
+    return itemsIds.reduce((sum, currentId) => {
+        return sum + calcItemPriceByCurrency(currency, currentId);
+    }, 0)
 }
 
 function calcTotalSumByCurrency(currency) {
